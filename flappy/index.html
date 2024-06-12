@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #70c5ce; /* Fallback background color */
+            background: url('cbg.jpeg') no-repeat center center;
+            background-size: cover;
+        }
+        canvas {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background to see the bird and pipes clearly */
+        }
+        .controls {
+            position: absolute;
+            top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1; /* Ensure buttons are on top of the canvas */
+        }
+        #scoreboard {
+            position: absolute;
+            right: 15px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-size: 25px;
+            font-weight: 600;
+            z-index: 99; /* Ensure scoreboard is on top of the canvas */
+        }
+
+        @media (max-width: 600px) {
+            button {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+            #scoreboard {
+                font-size: 16px;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 1024px) {
+            button {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
+            #scoreboard {
+                font-size: 18px;
+            }
+        }
+        @media (min-width: 1025px) {
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            #scoreboard {
+                font-size: 20px;
+            }
+        }
+
+        .comic-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #ff5252;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 0px #000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.comic-button:hover {
+  background-color: #fff;
+  color: #ff5252;
+  border: 2px solid #ff5252;
+  box-shadow: 5px 5px 0px #ff5252;
+}
+
+.comic-button:active {
+  background-color: #fcf414;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div class="controls">
+        
+        <!-- <button id="stopButton">Stop</button> -->
+        <button class="comic-button" id="stopButton">Stop</button>
+
+        <!-- <button id="restartButton">Restart</button> -->
+        <button class="comic-button" id="restartButton">Play</button>
+    </div>
+    <div id="scoreboard">
+        <p id="lastScore">Last Score: 0</p>
+        <p id="highScore">Highest Score: 0</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
